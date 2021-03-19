@@ -1,1 +1,1 @@
-# p2p-bq
+p2p bq est un ensemble d'algorithmes qui seront utilisés afin de créer une sorte de banque entièrement en pair à pair afin de la rendre utile meme pour des autres banques ou institutions financières,bien que les particuliers soient les premiers visés.
