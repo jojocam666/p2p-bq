@@ -1,3 +1,30 @@
+Wallet=[
+    {
+        "id": os unrandom(32), # random id (64 bytes)
+        "passwordHash": hash(password), # hash taken from password: sha256 (password) (64 bytes)
+        "secret": hash2(salt, passwordHash, random_factor) # pbkdf2 secret taken from password hash: sha512 (salt + passwordHash + random factor)
+        "keyPairs": [
+            {
+                "index": 1,
+                "secretKey": "6acb83e364...ee6bcdbc73", # EdDSA secret key generated from the secret (1024 bytes)
+                "publicKey": "dda3ce5aa5...b409bf3fdc" # EdDSA public key generated from the secret (64 bytes) (also known as address)
+            },
+            {
+                "index": 2,
+                "secretKey": "072ab010ed...246ed16d26", # EdDSA secret key generated from pbkdf2 (sha512 (salt + passwordHash + random factor)) over last address secret key (1024 bytes)
+                "publicKey": "4f8293356d...b53e8c5b25"  # EdDSA public key generated from the secret (64 bytes) (also known as address)
+            }     
+        ]
+    }
+]
+
+
+
+
+
+
+
+
 class Wallet:
      def __init__(self, private_key = None):
 
