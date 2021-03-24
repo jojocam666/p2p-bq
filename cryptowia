@@ -101,8 +101,6 @@ decrypted_mes = ProductionEncryption().decrypt(message)
 ......................
 
    
-
-
 def new_address():
     
     address = RIPEMD160( SHA256( public_key ) )
