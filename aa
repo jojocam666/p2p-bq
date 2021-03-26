@@ -52,11 +52,9 @@ Only the public key is exposed as the user's address.
 The Miner gets the list of pending transactions and creates a new block containing the transactions. By configuration, every block has at most 2 transactions in it.
 
 Assembling a new block:
-1. From the list of unconfirmed transaction selected candidate transactions that are not already in the blockchain or is not already selected;
-1. Get the first two transactions from the candidate list of transactions;
-2. Add a new transaction containing the fee value to the miner's address, 1 satoshi per transaction;
-3. Add a reward transaction containing 50 coins to the miner's address;
-4. Prove work for this block;
+1. From the list of unconfirmed transactions select the ones witch are valid;
+2. Add a new transaction containing the fee value to the bpsc_wallet address, 0.05% per transaction;
+3. 
 
 #### Node
 
