@@ -58,26 +58,6 @@ Assembling a new block:
 3. Add a reward transaction containing 50 coins to the miner's address;
 4. Prove work for this block;
 
-##### Proof-of-work
-
-The proof-of-work is done by calculating the 14 first hex values for a given transaction hash and increases the nonce until it reaches the minimal difficulty level required. The difficulty increases by an exponential value (power of 5) every 5 blocks created. Around the 70th block created it starts to spend around 50 seconds to generate a new block with this configuration. All these values can be tweaked.
-
-```javascript
-const difficulty = this.blockchain.getDifficulty();
-do {
-    block.timestamp = new Date().getTime() / 1000;
-    block.nonce++;
-    block.hash = block.toHash();
-    blockDifficulty = block.getDifficulty();
-} while (blockDifficulty >= difficulty);
-```
-
-The `this.blockchain.getDifficulty()` returns the hex value of the current blockchain's index difficulty. This value is calculated by powering the initial difficulty by 5 every 5 blocks.
-
-The `block.getDifficulty()` returns the hex value of the first 14 bytes of block's hash and compares it to the currently accepted difficulty. 
-
-When the hash generated reaches the desired difficulty level, it returns the block as it is.
-
 #### Node
 
 The node contains a list of connected peers and does all the data exchange between nodes, including:
@@ -87,17 +67,14 @@ The node contains a list of connected peers and does all the data exchange betwe
 
 The node rebroadcasts all information it receives unless it doesn't do anything with it, for example, if it already has the peer/transaction/blockchain.
 
-An extra responsibility is to get a number of confirmations for a given transaction. It does that by asking every node if it has that transaction in its blockchain.
-
-### Quick start
 
 ```sh
 # Run a node
-$ node bin/naivecoin.js
+$ node bin/lio.js
 
 # Run two nodes
-$ node bin/naivecoin.js -p 3001 --name 1
-$ node bin/naivecoin.js -p 3002 --name 2 --peers http://localhost:3001
+$ node bin/lio.js -p 3001 --name 1
+$ node bin/lio.js -p 3002 --name 2 --peers http://localhost:3001
 
 # Access the swagger API
 http://localhost:3001/api-docs/
@@ -105,7 +82,7 @@ http://localhost:3001/api-docs/
 
 #### Example (wallet, address, transaction and mining)
 ```sh
-# Create a wallet using password 't t t t t' (5 words)
+# Create a bpsc_wallet using password 't t t t t' (5 words)
 $ curl -X POST --header 'Content-Type: application/json' -d '{ "password": "t t t t t" }' 'http://localhost:3001/operator/wallets'
 {"id":"a2fb4d3f93ea3d4624243c03f507295c0c7cb5b78291a651e5575dcd03dfeeeb","addresses":[]}
 
@@ -120,7 +97,7 @@ $ curl -X POST --header 'Content-Type: application/json' --header 'password: t t
 $ curl -X POST --header 'Content-Type: application/json' -d '{ "rewardAddress": "e155df3a1bac05f88321b73931b48b54ea4300be9d1225e0b62638f537e5544c" }' 'http://localhost:3001/miner/mine'
 {
     "index": 1,
-    "nonce": 1,
+    
     "previousHash": "c4e0b8df46ce5cb2bcb0379ab0840228536cf4cd489783532a7c9d199754d1ed",
     "timestamp": 1493475731.692,
     "transactions": [
@@ -142,7 +119,7 @@ $ curl -X POST --header 'Content-Type: application/json' -d '{ "rewardAddress": 
     "hash": "0311a3a89198ccf888c76337cc190e2db238b67a7db0d5062aac97d14fb679b4"
 }
 
-# Create a transaction that transfer 1000000000 satoshis from address 1 to address 2
+# Create a transaction that transfer 1000000000 lios(reward) from address 1 to address 2
 $ curl -X POST --header 'Content-Type: application/json' --header 'password: t t t t t' -d '{ "fromAddress": "e155df3a1bac05f88321b73931b48b54ea4300be9d1225e0b62638f537e5544c", "toAddress": "c3c96504e432e35caa94c30034e70994663988ab80f94e4b526829c99958afa8", "amount": 1000000000, "changeAddress": "e155df3a1bac05f88321b73931b48b54ea4300be9d1225e0b62638f537e5544c" }' 'http://localhost:3001/operator/wallets/a2fb4d3f93ea3d4624243c03f507295c0c7cb5b78291a651e5575dcd03dfeeeb/transactions'
  {
   "id": "c3c1e6fbff949042b065dc9e22d065a54ab826595fd8877d2be8ddb8cbb0e27f",
