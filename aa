@@ -47,14 +47,14 @@ It uses the EdDSA algorithm to generate a secret public key pair using a seed th
 
 Only the public key is exposed as the user's address.
 
-#### Miner
+#### BPSC
 
-The Miner gets the list of pending transactions and creates a new block containing the transactions. By configuration, every block has at most 2 transactions in it.
+The BPSC gets the list of pending transactions and creates a new block containing the transactions. By configuration, every block has the most of transactions possible in five minutes in it.
 
 Assembling a new block:
 1. From the list of unconfirmed transactions select the ones witch are valid;
-2. Add a new transaction containing the fee value to the bpsc_wallet address, 0.05% per transaction;
-3. 
+2. Add to each transaction  a new transaction containing the fee value to the bpsc_wallet address, 0.05% per transaction;
+3. When time has been 5 minutes,the BPSCmines the block
 
 #### Node
 
