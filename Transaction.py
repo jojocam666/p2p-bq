@@ -79,6 +79,7 @@ def hash384(transaction)
   hash384 = hashlib.sha1(transaction).hexdigest() 
 
 
+    
+def new_transaction(self,sender_public,sender_private,recipient,amount)
+  self.sender_public = 
   
-  
-  def new_transaction(self,sender_public,sender_private,recipient,amount)
