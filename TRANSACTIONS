@@ -1,0 +1,14 @@
+import cryptowia
+
+class Transaction:
+  def__init__(self):
+    self.input_transaction = []
+    self.output_transaction1 = []
+    self.output_transaction2 = []
+    
+def new_transaction(self,sender_public,sender_private,recipient,amount)
+  
+  self.sender_publicKey = _get_public_key
+  self.sender_privateKey = _get_private_key
+  self.amount = 'amount'
+  recipient
