@@ -8,7 +8,11 @@ class Transaction:
     
 def new_transaction(self,sender_public,sender_private,recipient,amount)
   
-  self.sender_publicKey = _get_public_key
-  self.sender_privateKey = _get_private_key
-  self.amount = 'amount'
-  recipient
+  
+  transaction = {
+    input_transaction = [
+    
+      'sender' = self.sender_publicKey or _get_public_key,
+      self.sender_privateKey = _get_private_key,
+      self.amount = 'amount',
+      recipient = self.recipient
