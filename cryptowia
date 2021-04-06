@@ -14,7 +14,7 @@ class RSAEncryption(object):
     PRIVATE_KEY_FILE_PATH = None
     PUBLIC_KEY_FILE_PATH = None
 
-    def encrypt(self, message):
+    def encrypt_rsa(self, message):
         public_key = self._get_public_key()
         public_key_object = RSA.importKey(public_key)
         random_phrase = 'M'
@@ -22,7 +22,7 @@ class RSAEncryption(object):
         # use base64 for save encrypted_message in database without problems with encoding
         return base64.b64encode(encrypted_message)
 
-    def decrypt(self, encoded_encrypted_message):
+    def decrypt_rsa(self, encoded_encrypted_message):
         encrypted_message = base64.b64decode(encoded_encrypted_message)
         private_key = self._get_private_key()
         private_key_object = RSA.importKey(private_key)
@@ -125,4 +125,71 @@ def new_address():
         :param block: transaction
         """
         transaction_string = json.dumps(transaction, sort_keys=True).encode()
-        return hashlib.sha256(transaction_string).hexdigest()   
+        return hashlib.sha256(transaction_string).hexdigest()
+        
+  ............................
+  
+  def randomCryptoNumber():
+    return RNG.new().read(AES.block_size) #Retourne un nombre aléatoire
+
+  
+  def append_data(data):
+    # si la taille de donnée fait 16 byte, aucun ajout
+    if len(data) % 16 == 0:
+        return data
+
+    # On enlève un byte pour ajouter le 0x80
+
+    dataAppend = 15 - (len(data) % 16)
+
+    data = '%s\x80' % data
+    data = '%s%s' % (data, '\x00' * dataAjouter)
+
+    return data  
+  
+  def remove_data(data):
+  if not data:
+      return data
+
+  data = data.rstrip('\x00')
+  if data[-1] == '\x80':
+      return data[:-1]
+  else:
+      return data
+  
+ 
+
+def generateCryptoKey():
+    key_size = 32
+    key = str(RNG.new().read(key_size))
+    return key  
+  
+ import Crypto.Cipher.AES as AES
+
+def encrypt_aes(data, key):
+
+  #Encrypte les donnée utilisant AES en mode CBC
+
+  data = ajout_data(data)
+  number = randomCryptoNumber()
+  aes = AES.new(key, AES.MODE_CBC, number)
+  msg_crypt = aes.encrypt(data)
+
+  return number + msg_crypt
+
+def decrypt_aes(ciphertext, key):
+
+  #Decrypt un ciphertext encrypté avec l'AES en mode CBC
+
+  if len(ciphertext) <= AES.block_size:
+      raise Exception("Invalid ciphertext.")
+  number = ciphertext[:AES.block_size]
+  ciphertext = ciphertext[AES.block_size:]
+  aes = AES.new(key, AES.MODE_CBC, number)
+  data = aes.decrypt(ciphertext)
+
+  return remove_data(data) #Enleve le padding ajouté
+...................
+
+def hash384(transaction)
+  hash384 = hashlib.sha1(transaction).hexdigest() 
