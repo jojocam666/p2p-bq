@@ -246,10 +246,52 @@ def b58(data):
 
         return self.wif_compressed
         
-   def node_get_public_key(self):
+   
+  
+   
+   
+   
+ def node_get_public_key(self):
        
        if self.node_public_key == None     
        
-          self.node_public_key = wif
+          self.node_public_key = address
        
        return self.node_public_key
+       
+       
+       
+ ......................
+ 
+  wallet = Wallet;
+  
+  def get_new_spend_address(self):
+    
+    random_seed = os.unrandom(32)
+    
+    spend_address = b58(address + sha256(sha256(random_seed))[:4])
+    
+    return spend_address
+
+  
+  def get_spend_key(self):
+  
+    spend_key = self.private_key
+    
+    return spend_key
+    
+  def get_view_key(self):
+    
+    view_key = self.address
+    
+    return view_key
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  wallet = [self.address_uncompressed, self.private_key, self.spend_key, self.view_key]
