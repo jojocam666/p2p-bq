@@ -1,3 +1,9 @@
+
+
+
+# CHIFFREMENT ASYMETRIQUE EN RSA PRENANT EN COMPTE DEUX CLES PUBLIQUE ET PRIVEE
+# CHIFFREMENT ASYMETRIQUE EN RSA PRENANT EN COMPTE DEUX CLES PUBLIQUE ET PRIVEE
+
 from __future__ import unicode_literals
 import base64
 import os
@@ -85,7 +91,7 @@ class TestingEncryption(RSAEncryption):
 
 
 # django/flask
-from django.core.files import File
+from django.core.files import File 
 
 class ProductionEncryption(RSAEncryption):
     PUBLIC_KEY_FILE_PATH = settings.SURVEY_DIR_WITH_ENCRYPTED_KEYS + 'public.key'
@@ -111,7 +117,30 @@ def new_address():
     return address
     
 .....................    
-    @staticmethod
+ 
+ 
+ # HACHAGE DE DONNEES EN 256,384,512   
+   
+   
+   
+ import hashlib
+  
+def hash384(data)
+  data_string = json.dumps(data, sort_keys=True).encode()
+  hashed_data384 = hashlib.sha1(data_string).hexdigest()
+  
+  return hashed_data384
+
+
+.....
+
+def hash512(data)
+  data_string = json.dumps(data, sort_keys=True).encode()
+  hashed_data512 = hashlib.sha512(data_string).hexdigest()
+  
+  return hashed_data512
+
+   @staticmethod
     def hash(block):
         """
         Creates a SHA-256 hash of a Block
@@ -132,7 +161,11 @@ def new_address():
         
   ............................
   
-  def randomCryptoNumber():
+ # CHIFFREMENT SYMETRIQUE AES MODE CBC
+ 
+ 
+ 
+ def randomCryptoNumber():
     return RNG.new().read(AES.block_size) #Retourne un nombre aléatoire
 
   
@@ -194,15 +227,3 @@ def decrypt_aes(ciphertext, key):
   return remove_data(data) #Enleve le padding ajouté
 ...................
 
-def hash384(data)
-  hashed_data384 = hashlib.sha1(data).hexdigest()
-  
-  return hashed_data384
-
-
-.....................
-from Crypto.Hash import SHA512
-def hash512(data)
-  hashed_data512 = hashlib.sha512(data).hexdigest()
-  
-  return hashed_data512
