@@ -8,7 +8,7 @@ class Transaction:
     self.output_transaction1 = []
     self.output_transaction2 = []
     
-def new_transaction(self,sender_public,sender_private,recipient,amount)
+def new_transaction(self,sender_public,sender_private,recipient,amount):
   
   
   transaction = {
@@ -27,7 +27,7 @@ def new_transaction(self,sender_public,sender_private,recipient,amount)
     
       output_transaction2 = [
     
-      'id' : os.unrandom(64) ,
+      'id' :  os.unrandom(64) ,
       
       'sender' : self.sender_publicKey or _get_public_key,
       
@@ -35,6 +35,24 @@ def new_transaction(self,sender_public,sender_private,recipient,amount)
       
       'amount' : self.fees_amount,
       
-      'timestamp': time() or str(datetime.datetime.now()),
+      'timestamp': time() or str(datetime.datetime.now()), 
+      
+      
       ]
+   
+      output_transaction3 = [
+      
+      'id' : os.unrandom(64),
+      
+      'sender' : self.sender_publicKey or _get_public_key,
+      
+      'recipient' : self.sender_publicKey or _get_public_key,
+      
+      'amount' : self.refund_amount,
+      
+      'timestamp': time() or str(datetime.datetime.now()),
+   
+      ]
+   
+      crypted_transaction =
    } 
