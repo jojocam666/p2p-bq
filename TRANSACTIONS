@@ -10,9 +10,12 @@ def new_transaction(self,sender_public,sender_private,recipient,amount)
   
   
   transaction = {
-    input_transaction = [
+    output_transaction1 = [
     
-      'sender' = self.sender_publicKey or _get_public_key,
-      self.sender_privateKey = _get_private_key,
-      self.amount = 'amount',
-      recipient = self.recipient
+      'id' = os.unrandom(64) ,
+      
+      'sender' = self.sender_publicKey or _get_public_key,      
+       
+      'amount' = self.amount 
+       
+      'recipient' = self.recipient
