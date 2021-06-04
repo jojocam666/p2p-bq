@@ -241,6 +241,8 @@ def decrypt_aes(ciphertext, key):
 ...................
 
 # PROCEDE DE SIGNATURE
+# PREPARATION DU MESSAGE SIGNE
+
 
 def signature_data(self,public_key,private_key,data):
 
@@ -255,5 +257,8 @@ def signature_data(self,public_key,private_key,data):
     signed_message = [data , signature]
     
     return signed_message
+    
+    
+    
 .....................
 
