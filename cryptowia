@@ -156,8 +156,21 @@ def hash512(data)
         Creates a SHA-256 hash of a transaction
         :param block: transaction
         """
-        transaction_string = json.dumps(transaction, sort_keys=True).encode()
-        return hashlib.sha256(transaction_string).hexdigest()
+        def hash384(data)
+  data_string = json.dumps(data, sort_keys=True).encode()
+  hashed_data384 = hashlib.sha1(data_string).hexdigest()
+  
+  return hashed_data384
+..................
+
+def hash256(data):
+ data_string = json.dumps(data, sort_keys=True).encode()
+  hashed_data256 = hashlib.sha256(data_string).hexdigest()
+  
+  return hashed_data256
+
+
+
         
   ............................
   
@@ -226,4 +239,21 @@ def decrypt_aes(ciphertext, key):
 
   return remove_data(data) #Enleve le padding ajouté
 ...................
+
+# PROCEDE DE SIGNATURE
+
+def signature_data(self,public_key,private_key,data):
+
+    data = ""
+    if data =! None:
+    condensat_data =  hash256(data)
+    
+    if condensat_data =! None:
+    
+    signature = encrypt_rsa(self,condensat_data)
+    
+    signed_message = [data , signature]
+    
+    return signed_message
+.....................
 
