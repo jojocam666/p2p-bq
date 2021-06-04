@@ -254,11 +254,27 @@ def signature_data(self,public_key,private_key,data):
     
     signature = encrypt_rsa(self,condensat_data)
     
-    signed_message = [data , signature]
+    return signature
+    
+ def _get_signed_message
+ 
+    signed_message = []
+    signed_message.extend([data, signature])
     
     return signed_message
     
+# RECEPTION DU MESSAGE
+def decrypt_signature(self):
     
+    return decrypt_rsa(self,data)
+
+
+
+def _get_authentic_signature(self):
+    
+      if hash256(signed_message[0]) == decrypt_signature
+      
+      return True
     
 .....................
 
