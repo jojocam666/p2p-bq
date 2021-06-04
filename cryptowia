@@ -269,7 +269,6 @@ def decrypt_signature(self):
     return decrypt_rsa(self,data)
 
 
-
 def _get_authentic_signature(self):
     
       if hash256(signed_message[0]) == decrypt_signature
