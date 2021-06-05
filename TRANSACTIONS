@@ -9,50 +9,64 @@ class Transaction:
     self.output_transaction2 = []
     
 def new_transaction(self,sender_public,sender_private,recipient,amount):
+  """
+        Creates a new transaction to go into the next mined Block
+        :param sender: Address of the Sender
+        :param amount_send: The amount sent by the sender
+        :param bpsc: Address of the Smart contract (bpsc)
+        :param amount_bpsc: The amount received by bpsc (Transaction fees)
+        :param recipient: Address of the Recipient
+        :param amount_receive: The amount received by the recipient
+        :return: The index of the Block that will hold this transaction
+        """
+  
+  
+  
   
   
   transaction = {
-      output_transaction1 = [
+            'id':str(os unrandom(32)),
+            'hash': hash(id,data), 
+            
+            'data': {
+                "inputs": [ #a previous  unspent transaction 
+                    {
+                     "transaction": previous_unspent_output_hash, # transaction hash taken from a previous unspent transaction output (64 bytes)
+                     "index": previous_unspent_output_index, # index of the transaction taken from a previous unspent transaction output
+                     "amount": self.amount, # amount of lios
+                     "address": self.address, # from address (64 bytes)
+                     "signature": signature_data(transaction_input) # transaction input hash: sha256 (transaction + index + amount + address) signed with owner address's secret key (128 bytes)
+                    }
+            ],
     
-      'id' : os.unrandom(64) ,
-      
-      'sender' : self.sender_publicKey or _get_public_key,      
-       
-      'amount' : self.amount 
-       
-      'recipient' : self.recipient
-      
-      'timestamp': time() or str(datetime.datetime.now()),
-      ]
-    
-      output_transaction2 = [
-    
-      'id' :  os.unrandom(64) ,
-      
-      'sender' : self.sender_publicKey or _get_public_key,
-      
-      'recipient' : self.bpsc_wallet,
-      
-      'amount' : self.fees_amount,
-      
-      'timestamp': time() or str(datetime.datetime.now()), 
-      
-      
-      ]
-   
-      output_transaction3 = [
-      
-      'id' : os.unrandom(64),
-      
-      'sender' : self.sender_publicKey or _get_public_key,
-      
-      'recipient' : self.sender_publicKey or _get_public_key,
-      
-      'amount' : self.refund_amount,
-      
-      'timestamp': time() or str(datetime.datetime.now()),
-   
-      ]
+        
+        
+                "outputs": [  #Transaction outputs
+                    {
+                        "amount_fees": fees or amount * fees_rate, #amount of lios taken
+                        "bpsc": 'bpsc_wallet_address', # Block Producer Smart Contract (bpsc)
+                    },
+                    {
+                        "final_amount": "amount"-"amount_fees", # amount of lios received
+                        "address": new_address(self) # change address (64 bytes)
+                    },
+                    {
+                        "refund_amount": refund,
+                        "address": self.sender,
+                    }
+            
+            
+            'sender': sender,
+            'amount_send': amount,
+             
+            'bpsc': 'bpsc_wallet_address', # Block Producer Smart Contract (bpsc)
+            'amount_bpsc': amount * 0.00005, # Transaction fees
+            'time': str(datetime.datetime.now())
+            'recipient': recipient,
+            'amount_receive': amount * 0.99995,
+        })
+
+        return self.last_block['index'] + 1
    
       crypted_transaction =
    } 
