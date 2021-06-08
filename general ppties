@@ -33,8 +33,9 @@ class Smart_Blockchain:
         
 
 
-    def new_transaction(self, id , hash , data , sender, amount,time, recipient):
-        """
+    
+       def new_transaction(self,id ,hash,time,sender_public,sender_private,recipient,amount):
+  """
         Creates a new transaction to go into the next mined Block
         :param sender: Address of the Sender
         :param amount_send: The amount sent by the sender
@@ -44,18 +45,23 @@ class Smart_Blockchain:
         :param amount_receive: The amount received by the recipient
         :return: The index of the Block that will hold this transaction
         """
-        self.current_transactions.append({
+  
+  
+  
+  
+  
+  transaction = {
             'id':str(os unrandom(32)),
             'hash': hash(id,data), 
             
             'data': {
-                "inputs": [ #transaction inputs
+                "inputs": [ #a previous  unspent transaction 
                     {
                      "transaction": previous_unspent_output_hash, # transaction hash taken from a previous unspent transaction output (64 bytes)
                      "index": previous_unspent_output_index, # index of the transaction taken from a previous unspent transaction output
                      "amount": self.amount, # amount of lios
                      "address": self.address, # from address (64 bytes)
-                     "signature": encrypt(hash(transaction_input)) # transaction input hash: sha256 (transaction + index + amount + address) signed with owner address's secret key (128 bytes)
+                     "signature": signature_data(transaction_input) # transaction input hash: sha256 (transaction + index + amount + address) signed with owner address's secret key (128 bytes)
                     }
             ],
     
@@ -63,12 +69,16 @@ class Smart_Blockchain:
         
                 "outputs": [  #Transaction outputs
                     {
-                        "amount_fees": fees or amount * fees_rate, "amount of lios taken
+                        "amount_fees": fees or amount * fees_rate, #amount of lios taken
                         "bpsc": 'bpsc_wallet_address', # Block Producer Smart Contract (bpsc)
                     },
                     {
-                        "final_amount": "amount"-"amount_fees, # amount of lios received
+                        "final_amount": "amount"-"amount_fees", # amount of lios received
                         "address": new_address(self) # change address (64 bytes)
+                    },
+                    {
+                        "refund_amount": refund,
+                        "address": self.sender,
                     }
             
             
@@ -78,11 +88,24 @@ class Smart_Blockchain:
             'bpsc': 'bpsc_wallet_address', # Block Producer Smart Contract (bpsc)
             'amount_bpsc': amount * 0.00005, # Transaction fees
             'time': str(datetime.datetime.now())
-            'recipient': recipient,
+            'recipient': recipient_address,
             'amount_receive': amount * 0.99995,
+            'index' : self.last_block['index'] + 1
+            ]
         })
-
-        return self.last_block['index'] + 1
+   
+          "crypted_transaction" : [
+              'signature' : signature(data) ,
+              'cipher_tras' : encrypt_aes(data, random_key),
+              'cipher_key' : encrypt_rsa(random_key, recipient_address),
+          ]
+      
+   } 
+   
+   self.current_transactions.append(transaction)
+      return transaction
+   
+      return self.last_block['index'] + 1
         
         
         
@@ -117,31 +140,5 @@ class Smart_Blockchain:
 .......................
 
 
-transaction = [
-    "id": os unrandom(64) 
-    "hash": hash(id,data) 
-    "data": {
-        "inputs": [ 
-            {
-                "transaction": previous_unspent_output_hash, # transaction hash taken from a previous unspent transaction output (64 bytes)
-                "index": previous_unspent_output_index, # index of the transaction taken from a previous unspent transaction output
-                "amount": self.amount, # amount of lios
-                "address": self.address, # from address (64 bytes)
-                "signature": encrypt(hash(transaction_input)) # transaction input hash: sha256 (transaction + index + amount + address) signed with owner address's secret key (128 bytes)
-            }
-        ],
-    
-        
-        
-        "outputs": [  #Transaction outputs
-            {
-                "amount_fees": fees, "amount of satoshis
-                "address": self.recipient.address # to address (64 bytes)
-            },
-            {
-                "final_amount": "amount"-"amount_fees, # amount of satoshis
-                "address": new_address(self) # change address (64 bytes)
-            }
-        ]
-    }
+
  
