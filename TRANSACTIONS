@@ -62,11 +62,17 @@ def new_transaction(self,sender_public,sender_private,recipient,amount):
             'bpsc': 'bpsc_wallet_address', # Block Producer Smart Contract (bpsc)
             'amount_bpsc': amount * 0.00005, # Transaction fees
             'time': str(datetime.datetime.now())
-            'recipient': recipient,
+            'recipient': recipient_address,
             'amount_receive': amount * 0.99995,
+            ]
         })
 
         return self.last_block['index'] + 1
    
-      crypted_transaction =
+          "crypted_transaction" : [
+              'signature' : signature(data) ,
+              'cipher_tras' : encrypt_aes(data, random_key),
+              'cipher_key' : encrypt_rsa(random_key, recipient_address),
+          ]
+      
    } 
