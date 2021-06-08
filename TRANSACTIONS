@@ -68,6 +68,9 @@ def decrypt_aes(ciphertext, random_key):
   data = aes.decrypt(ciphertext)
 
   return remove_data(data) #Enleve le padding ajouté
+  
+  
+  
    
    
    
