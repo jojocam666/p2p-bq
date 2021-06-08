@@ -4,9 +4,73 @@ from time import time
 
 class Transaction:
   def__init__(self):
-    self.input_transaction = []
-    self.output_transaction1 = []
-    self.output_transaction2 = []
+    self.inputs = []
+    self.outputs = []
+   
+   
+   def randomCryptoNumber():
+    return RNG.new().read(AES.block_size) #Retourne un nombre aléatoire
+
+  
+  def append_data(data):
+    # si la taille de donnée fait 16 byte, aucun ajout
+    if len(data) % 16 == 0:
+        return data
+
+    # On enlève un byte pour ajouter le 0x80
+
+    dataAppend = 15 - (len(data) % 16)
+
+    data = '%s\x80' % data
+    data = '%s%s' % (data, '\x00' * dataAjouter)
+
+    return data  
+  
+  def remove_data(data):
+  if not data:
+      return data
+
+  data = data.rstrip('\x00')
+  if data[-1] == '\x80':
+      return data[:-1]
+  else:
+      return data
+  
+ 
+
+def generateCryptoKey():
+    key_size = 32
+    random_key = str(RNG.new().read(key_size))
+    return random_key  
+  
+ import Crypto.Cipher.AES as AES
+
+def encrypt_aes(data, random_key):
+
+  #Encrypte les donnée utilisant AES en mode CBC
+
+  data = append_data(data)
+  number = randomCryptoNumber()
+  aes = AES.new(random_key, AES.MODE_CBC, number)
+  msg_crypt = aes.encrypt(data)
+
+  return number + msg_crypt
+
+def decrypt_aes(ciphertext, random_key):
+
+  #Decrypt un ciphertext encrypté avec l'AES en mode CBC
+
+  if len(ciphertext) <= AES.block_size:
+      raise Exception("Invalid ciphertext.")
+  number = ciphertext[:AES.block_size]
+  ciphertext = ciphertext[AES.block_size:]
+  aes = AES.new(random_key, AES.MODE_CBC, number)
+  data = aes.decrypt(ciphertext)
+
+  return remove_data(data) #Enleve le padding ajouté
+   
+   
+   
     
 def new_transaction(self,sender_public,sender_private,recipient,amount):
   """
@@ -64,10 +128,9 @@ def new_transaction(self,sender_public,sender_private,recipient,amount):
             'time': str(datetime.datetime.now())
             'recipient': recipient_address,
             'amount_receive': amount * 0.99995,
+            'index' : self.last_block['index'] + 1
             ]
         })
-
-        return self.last_block['index'] + 1
    
           "crypted_transaction" : [
               'signature' : signature(data) ,
@@ -76,3 +139,5 @@ def new_transaction(self,sender_public,sender_private,recipient,amount):
           ]
       
    } 
+   
+   
