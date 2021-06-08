@@ -89,9 +89,19 @@ def new_transaction(self,sender_public,sender_private,recipient,amount):
   
   
   
+  values = request.get_json()
+
+    # Check that the required fields are in the POST'ed data
+    required = ['sender', 'amount', 'recipient']
+    if not all(k in values for k in required):
+        return 'Missing values', 400
+
+    # Create a new Transaction
+    index = blockchain.new_transaction(values['sender'], values['amount'], values['recipient'])
   
-  
-  transaction = {
+ 
+ 
+ transaction = {
             'id':str(os unrandom(32)),
             'hash': hash(id,data), 
             
