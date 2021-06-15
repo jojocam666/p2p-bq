@@ -38,11 +38,8 @@ smart_blockchain = Smart_Blockchain()
 
     
 
-    def add_transaction(self, sender, receiver, amount, time): #New
-        self.transactions.append({'sender': sender,
-                                  'receiver': receiver,
-                                  'amount': amount,
-                                  'time': str(datetime.datetime.now())})
+    def add_transaction(self, new_transaction): #New
+        self.transactions.append(new_transaction)
         previous_block = self.get_last_block()
         return previous_block['index'] + 1
 
