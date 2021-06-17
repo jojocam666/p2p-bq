@@ -2,13 +2,35 @@ import hashlib
 import json
 from time import time
 
+class Block(object):
+
+    def __init__(self, index, proof_number, previous_hash, data, timestamp=None):
+
+        self.index = index
+
+        self.previous_hash = previous_hash
+
+        self.transactions = transactions
+
+        self.timestamp = timestamp or time.time()
+
+
+
+
 class Smart_Blockchain:
+    
     def __init__(self):
+        
         self.current_transactions = []
+        
         self.chain = []
+        
         self.nodes = set()
 
-        # Create the genesis block
+        self.build_genesis()
+        
+    def build_genesis(self):       # Create the genesis block
+        
         self.new_block(previous_hash='1')
 
     def new_block(self, previous_hash):
@@ -18,40 +40,121 @@ class Smart_Blockchain:
         :return: New Block
         """
 
-        block = {
+        block = Block(
             'index': len(self.chain) + 1,
             'timestamp': time() or str(datetime.datetime.now()),
             'transactions': self.current_transactions,
             'previous_hash': previous_hash or self.hash(self.chain[-1]),
-        }
+        )
 
         # Reset the current list of transactions
+        
         self.current_transactions = []
 
         self.chain.append(block)
         
         return block
         
+    @staticmethod
+    
+     def confirm_validity(block, previous_block):
+           
+           if previous_block.index + 1 != block.index:
+
+            return False
+
+        elif previous_block.compute_hash != block.previous_hash:
+
+            return False
+
+        elif block.timestamp <= previous_block.timestamp:
+
+            return False
+
+        return True
         
-     def confirm_validity   
+        
+    def get_data(self, sender, receiver, amount):
+
+        self.current_data.append({
+
+            'sender': sender,
+
+            'receiver': receiver,
+
+            'amount': amount
+
+        })
+
+        return True
         
         
+ @property
+    def last_block(self):
+        return self.chain[-1]
+        
+        
+    def block_mining(self, detail_bpsc):       
+
+        self.get_data(
+
+            sender="0", #it implies that this node has created a new block
+
+            receiver=detail_bpsc,
+
+            quantity = money_mass, #creating a new block (or identifying the proof number) is awared with money_mass
+
+        )
+
+        last_block = self.last_block
+
+        last_hash = hash(last_block)
+
+        block = self.new_block(, last_hash)
+
+        return vars(block)  
+
+    
+    
+    
+    
+    
+    
+    def create_node(self, address):
+
+        self.nodes.add(address)
+
+        return True
+
+    @staticmethod
+
+    def get_block_object(block_data):        
+
+        return Block(
+
+            block_data['index'],
+
+            block_data['proof_number'],
+
+            block_data['previous_hash'],
+
+            block_data['data'],
+
+            timestamp=block_data['timestamp']
+
+        )
+
+blockchain = BlockChain()
 
 
     
       
    
-   self.current_transactions.append(transaction)
-      return transaction
    
-      return self.last_block['index'] + 1
-        
         
         
 
-    @property
-    def last_block(self):
-        return self.chain[-1]
+   
 
 
     @staticmethod
@@ -149,5 +252,9 @@ class Smart_Blockchain:
 .......................
 
 
-
+self.current_transactions.append(transaction)
+      return transaction
+   
+      return self.last_block['index'] + 1
+        
  
