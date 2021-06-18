@@ -4,12 +4,6 @@ from time import time
 
 
 
-
-
-
-
-
-
 class Block(object):
 
     def __init__(self, index, proof_number, previous_hash, data, timestamp=None):
@@ -91,15 +85,15 @@ class Smart_Blockchain:
     
      def confirm_validity(block, previous_block):
            
-           if previous_block.index + 1 != block.index:
+           if last_block.index + 1 != block.index:
 
             return False
 
-        elif previous_block.compute_hash != block.previous_hash:
+        elif last_block.hash != block.previous_hash:
 
             return False
 
-        elif block.timestamp <= previous_block.timestamp:
+        elif block.timestamp <= last_block.timestamp:
 
             return False
 
