@@ -10,8 +10,30 @@ def block_mining(self, details_miner):
 
         )
 
-        last_block = self.latest_block
+        
+       def new_block(self, previous_hash):
+        """
+        Create a new Block in the Smart Blockchain
+        :param previous_hash: Hash of previous Block
+        :return: New Block
+        """
 
+        block = Block(
+            'index': len(self.chain) + 1,
+            'timestamp': time() or str(datetime.datetime.now()),
+            'transactions': self.current_transactions,
+            'previous_hash': previous_hash or self.hash(self.chain[-1]),
+        )
+
+        # Reset the current list of transactions
+        
+        self.current_transactions = []
+ 
+
+
+
+
+        last_block = self.latest_block
 
         last_hash = last_block.hash
 
