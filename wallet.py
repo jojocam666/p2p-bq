@@ -289,6 +289,20 @@ def b58(data):
     
  def get_key_ring(self, address, private_key, view_key) :
    
-    key_ring= [self.address, self.private_key]
+    a = self.get_private_key
+    
+    b = self.get_address
+    
+    key_ring= [a,b]
     
     return key_ring
+
+
+def new_wallet(self):
+    
+    return get_key_ring()
+
+...........................................
+
+
+
