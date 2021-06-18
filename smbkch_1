@@ -2,6 +2,14 @@ import hashlib
 import json
 from time import time
 
+
+
+
+
+
+
+
+
 class Block(object):
 
     def __init__(self, index, proof_number, previous_hash, data, timestamp=None):
@@ -14,6 +22,30 @@ class Block(object):
 
         self.timestamp = timestamp or time.time()
 
+
+ @staticmethod
+    def hash(block):
+        """
+        Creates a SHA-256 hash of a Block
+        
+        :param block: Block
+        """
+
+        # We must make sure that the Dictionary is Ordered, or we'll have inconsistent hashes
+        
+        block_string = json.dumps(block, sort_keys=True).encode()
+        
+        return hashlib.sha256(block_string).hexdigest()
+        
+    def hash(transaction):
+        """
+        Creates a SHA-256 hash of a transaction
+        
+        :param block: transaction
+        """
+        transaction_string = json.dumps(transaction, sort_keys=True).encode()
+        
+        return hashlib.sha256(transaction_string).hexdigest()
 
 
 
@@ -94,44 +126,7 @@ class Smart_Blockchain:
         return self.chain[-1]
         
         
-    def block_mining(self, detail_bpsc):       
-
-        self.get_data(
-
-            sender="0", #it implies that this node has created a new block
-
-            receiver=detail_bpsc,
-
-            quantity = money_created, #creating a new block (or identifying the proof number) is awared with money_mass
-
-        )
-
-        last_block = self.last_block
-
-        last_hash = hash(last_block)
-
-        block = self.new_block(last_hash)
-
-        return vars(block)  
-
     
-    
-    def get_new_money_mass(self, last_block , money_mass):
-         
-         i_i = 105120
-         
-         i = self.last_block.index
-         
-         while i = 1, i+=, i = i_i*2
-         
-         money_mass = 0
-         
-         money_created = 9512.9377 
-       
-         if money_mass =  1000000000
-         
-         money_created = money_created/1.61
-          
           
           
            
@@ -175,24 +170,7 @@ blockchain = BlockChain()
    
 
 
-    @staticmethod
-    def hash(block):
-        """
-        Creates a SHA-256 hash of a Block
-        :param block: Block
-        """
-
-        # We must make sure that the Dictionary is Ordered, or we'll have inconsistent hashes
-        block_string = json.dumps(block, sort_keys=True).encode()
-        return hashlib.sha256(block_string).hexdigest()
-        
-    def hash(transaction):
-        """
-        Creates a SHA-256 hash of a transaction
-        :param block: transaction
-        """
-        transaction_string = json.dumps(transaction, sort_keys=True).encode()
-        return hashlib.sha256(transaction_string).hexdigest()
+   
         
         
 
