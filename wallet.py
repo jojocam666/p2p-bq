@@ -251,7 +251,14 @@ def b58(data):
    
    
    
- def node_get_public_key(self):
+ 
+       
+       
+ ......................
+ 
+  wallet = Wallet;
+ 
+    def node_get_public_key(self):
        
        if self.node_public_key == None     
        
@@ -259,12 +266,6 @@ def b58(data):
        
        return self.node_public_key
        
-       
-       
- ......................
- 
-  wallet = Wallet;
-  
   def get_new_spend_address(self):
     
     random_seed = os.unrandom(32)
@@ -286,12 +287,8 @@ def b58(data):
     
     return view_key
     
-  
-  
-  
-  
-  
-  
-  
-  
-  wallet = [self.address_uncompressed, self.private_key, self.spend_key, self.view_key]
+ def get_key_ring(self, address, private_key, view_key) :
+   
+    key_ring= [self.address, self.private_key]
+    
+    return key_ring
