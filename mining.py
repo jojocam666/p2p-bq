@@ -102,18 +102,7 @@ import os
 
 
         
-def update_reward(self, money_mass,reward)
 
-    reward = 9513
-
-         while money_mass =< 5000000000, self.len(chain) += 105120,
-                
-                reward = reward/1.61
-                
-         if money_mass = 5000000000
-                
-                reward = 0
-        
         
 
 def mining_currency(self, bpsc):
@@ -130,7 +119,18 @@ def mining_currency(self, bpsc):
         )
                 
                 
+def update_reward(self, money_mass,reward)
 
+    reward = 9513
+
+         while money_mass =< 5000000000, self.len(chain) += 105120,
+                
+                reward = reward/1.61
+                
+         if money_mass = 5000000000
+                
+                reward = 0
+        
 
 def get_money_mass(self, reward, money_mass):
             
