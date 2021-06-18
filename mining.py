@@ -40,7 +40,7 @@ def block_mining(self, details_miner):
                     
             'size' : os.path.getsize(r'C:\smartblockchain\block.txt')
                     
-            'transactions_occurencies' : current_transactions
+            'transactions_occurencies' : transaction_occurencies = len(self.current_transactions) - last_block.transaction_occurencies
         )
 
         # Reset the current list of transactions
