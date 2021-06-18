@@ -8,17 +8,7 @@ import os
 
 
 
-def block_mining(self, details_miner):
 
-            self.get_data(
-
-            sender = "0", #it implies that this node has created a new block
-
-            receiver = bpsc,
-
-            quantity = money_mass, #creating a new block (or identifying the proof number) is awarded with 1
-
-        )
 
         
        def mining_new_block(self, data):
@@ -106,3 +96,33 @@ def block_mining(self, details_miner):
 
 
         return vars(block)  
+
+
+
+def mining_currency(self, bpsc):
+
+            self.get_data(
+
+            sender = "0", #it implies that this node has created a new block
+
+            receiver = bpsc,
+
+            quantity = reward, #creating a new block (or identifying the proof number) is awarded with 1
+            
+            money_mass = 
+        )
+
+def get_money_mass(self, reward, money_mass):
+            
+            money_mass = 0       
+
+            reward = 9513 
+            
+            while mining_currency(), money_mass += reward
+            
+def update_reward(self, money_mass,reward)            
+
+
+
+
+
