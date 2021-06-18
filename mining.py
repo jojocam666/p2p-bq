@@ -11,7 +11,7 @@ def block_mining(self, details_miner):
         )
 
         
-       def new_block(self, previous_hash):
+       def mining_block(self, previous_hash):
         """
         Create a new Block in the Smart Blockchain
         :param previous_hash: Hash of previous Block
@@ -19,15 +19,27 @@ def block_mining(self, details_miner):
         """
 
         block = Block(
+            
             'index': len(self.chain) + 1,
+            
             'timestamp': time() or str(datetime.datetime.now()),
+            
             'transactions': self.current_transactions,
+            
             'previous_hash': previous_hash or self.hash(self.chain[-1]),
         )
 
         # Reset the current list of transactions
         
         self.current_transactions = []
+
+        if new_transaction() return True:
+            
+            self.current_transactions.append(new_transaction)
+            
+            return
+
+        
  
 
 
