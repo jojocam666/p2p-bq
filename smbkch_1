@@ -41,6 +41,12 @@ class Block(object):
         
         return hashlib.sha256(transaction_string).hexdigest()
 
+@property
+    
+    def last_block(self):
+        
+        return self.chain[-1]
+
 
 
 class Smart_Blockchain:
@@ -115,9 +121,8 @@ class Smart_Blockchain:
         return True
         
         
- @property
-    def last_block(self):
-        return self.chain[-1]
+ blockchain = Smart_BlockChain()
+
         
         
     
@@ -127,6 +132,11 @@ class Smart_Blockchain:
            
     
     
+    
+    
+
+
+
     def create_node(self, address):
 
         self.nodes.add(address)
@@ -135,26 +145,6 @@ class Smart_Blockchain:
 
     @staticmethod
 
-    def get_block_object(block_data):        
-
-        return Block(
-
-            block_data['index'],
-
-            block_data['proof_number'],
-
-            block_data['previous_hash'],
-
-            block_data['data'],
-
-            timestamp=block_data['timestamp']
-
-        )
-
-blockchain = BlockChain()
-
-
-    
       
    
    
