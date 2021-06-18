@@ -1,7 +1,6 @@
 
 import time
-
-
+import os
 
 
 
@@ -43,6 +42,7 @@ def block_mining(self, details_miner):
         # Reset the current list of transactions
         
         self.current_transactions = []
+                    
 
         
         def sufficient_time(self):
