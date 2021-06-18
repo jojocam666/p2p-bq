@@ -99,40 +99,47 @@ import os
 
 
 
-def mining_currency(self, bpsc):
 
-            self.get_data(
 
-            sender = "0", #it implies that this node has created a new block
-
-            receiver = bpsc,
-
-            quantity = reward, #creating a new block (or identifying the proof number) is awarded with 1
-            
-            money_mass = 
-        )
-
-def get_money_mass(self, reward, money_mass):
-            
-            money_mass = 0       
-
-            reward = 9513 
-            
-            while mining_currency(), 
-            
-                money_mass += reward
-                
-            return money_mass    
         
 def update_reward(self, money_mass,reward)
+
+    reward = 9513
 
          while money_mass =< 5000000000, self.len(chain) += 105120,
                 
                 reward = reward/1.61
+                
+         if money_mass = 5000000000
+                
+                reward = 0
         
         
 
+def mining_currency(self, bpsc):
+
+            self.get_data(
+
+            sender = "0", #it implies that the bpsc has created a new block
+
+            receiver = bpsc,
+
+            amount = self.reward, #creating a new block  is awarded with reward in the bpsc
+            
+            money_mass = self.money_mass + self.reward
+        )
+                
+                
 
 
-
+def get_money_mass(self, reward, money_mass):
+            
+            money_mass = 0       
+ 
+            
+            while mining_currency(), 
+            
+                money_mass += self.reward
+                
+            return money_mass    
 
