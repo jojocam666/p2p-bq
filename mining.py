@@ -37,7 +37,13 @@ def block_mining(self, details_miner):
             
             self.current_transactions.append(new_transaction)
             
-            return
+            return self.current_transactions
+
+        if len(current_transactions) = 100
+            
+            return new_block(self, previous_hash, current_transactions
+        
+       elif                       
 
         
  
