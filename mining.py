@@ -118,9 +118,19 @@ def get_money_mass(self, reward, money_mass):
 
             reward = 9513 
             
-            while mining_currency(), money_mass += reward
+            while mining_currency(), 
             
-def update_reward(self, money_mass,reward)            
+                money_mass += reward
+                
+            return money_mass    
+        
+def update_reward(self, money_mass,reward)
+
+         while money_mass =< 5000000000, self.len(chain) += 105120,
+                
+                reward = reward/1.61
+        
+        
 
 
 
