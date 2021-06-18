@@ -47,7 +47,20 @@ def block_mining(self, details_miner):
         
         def sufficient_time(self):
             
-            start = last_block.timestamp
+            
+            start = last_block.timestamp.time()
+            
+            end = time.time()
+            
+            a = (end - start)
+            
+            if a = 600.00000000000000000
+            
+            return True
+            
+            else 
+            
+            return False
             
             
             
