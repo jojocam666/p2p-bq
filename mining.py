@@ -12,11 +12,11 @@ def block_mining(self, details_miner):
 
             self.get_data(
 
-            sender="0", #it implies that this node has created a new block
+            sender = "0", #it implies that this node has created a new block
 
-            receiver=details_miner,
+            receiver = bpsc,
 
-            quantity=1, #creating a new block (or identifying the proof number) is awarded with 1
+            quantity = money_mass, #creating a new block (or identifying the proof number) is awarded with 1
 
         )
 
@@ -37,6 +37,10 @@ def block_mining(self, details_miner):
             'transactions': self.current_transactions,
             
             'previous_hash': previous_hash or self.hash(self.chain[-1]),
+                    
+            'size' : os.path.getsize(r'C:\smartblockchain\block.txt')
+                    
+            'transactions_occurencies' : current_transactions
         )
 
         # Reset the current list of transactions
