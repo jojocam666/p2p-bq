@@ -1,3 +1,14 @@
+
+import time
+
+
+
+
+
+
+
+
+
 def block_mining(self, details_miner):
 
             self.get_data(
@@ -33,6 +44,13 @@ def block_mining(self, details_miner):
         
         self.current_transactions = []
 
+        
+        def sufficient_time(self):
+            
+            start = last_block.timestamp
+            
+            
+            
         if new_transaction() return True:
             
             self.current_transactions.append(new_transaction)
