@@ -21,14 +21,14 @@ def block_mining(self, details_miner):
         )
 
         
-       def mining_block(self, previous_hash):
+       def mining_new_block(self, data):
         """
         Create a new Block in the Smart Blockchain
         :param previous_hash: Hash of previous Block
         :return: New Block
         """
 
-        block = Block(
+        block = Block( data = {
             
             'index': len(self.chain) + 1,
             
@@ -42,10 +42,17 @@ def block_mining(self, details_miner):
                     
             'transactions_occurencies' : len(self.current_transactions)
                     
-            'hash' = self.hash(block)
-        )
+            'block_hash' = self.hash(block)
+            
+            }  
+       
+         )
 
-        # Reset the current list of transactions
+       return block
+
+
+
+# Reset the current list of transactions
         
         self.current_transactions = []
                     
@@ -78,11 +85,11 @@ def block_mining(self, details_miner):
 
         if len(current_transactions) = 100
             
-            return new_block(self, previous_hash, current_transactions,data)
+            return mining_new_block(self, data)
         
        elif sufficient_time() return True 
 
-             return new_block(self, previous_hash, current_transactions,data)
+             return mining_new_block(self, data)
 
         
  
@@ -90,11 +97,11 @@ def block_mining(self, details_miner):
 
 
 
-        last_block = self.latest_block
+        last_block = self.last_block
 
-        last_hash = last_block.hash
+        previous_hash = last_block.hash
 
-        block = self.build_block(, last_hash)
+        block = self.mining_new_block()
 
 
 
