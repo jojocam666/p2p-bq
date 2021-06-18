@@ -12,15 +12,10 @@ def block_mining(self, details_miner):
 
         last_block = self.latest_block
 
-        last_proof_number = last_block.proof_number
 
-        proof_number = self.proof_of_work(last_proof_number)
+        last_hash = last_block.hash
 
-
-
-        last_hash = last_block.compute_hash
-
-        block = self.build_block(proof_number, last_hash)
+        block = self.build_block(, last_hash)
 
 
 
