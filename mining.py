@@ -118,6 +118,32 @@ def mining_currency(self, bpsc):
             money_mass = self.money_mass + self.reward
         )
                 
+ def calc_blocks():
+        
+        a = 0
+        b = 9513 
+        i = 0
+        new_i == 0
+        
+        for new_block():
+                i += 1
+            return i
+        
+        if i = 105120:
+                a = a + i
+                return a
+        if a+=:
+                
+        
+        
+        
+        
+                
+                
+                
+                
+                
+                
                 
 def update_reward(self, money_mass,reward)
 
