@@ -121,7 +121,6 @@ def mining_currency(self, bpsc):
  def calc_blocks():
         
         a = 0
-        b = 9513 
         i = 0
         new_i == 0
         
@@ -133,6 +132,20 @@ def mining_currency(self, bpsc):
                 a = a + i
                 return a
         if a+=:
+                i = new_i
+                
+                return i
+        return True
+
+def update_reward():
+        reward = 9513.00000000000000
+        
+        if self.calc_blocks() return True:
+                
+                reward = reward/1.618
+                
+                return reward
+        return True
                 
         
         
