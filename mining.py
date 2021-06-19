@@ -120,20 +120,23 @@ def mining_currency(self, bpsc):
          
         return new_mining_transaction(bpsc, amount)
 
-     if new_block() return True:
-        
-        self.next_block.current_transactions.append(self.new_mining_transaction)
-        
-        return new_block
+     
 
 def get_next_block(self):
-        next_block = []
+        
+        next_block = Block
         
         next_block.index = len(chain) + 1
         
+        next_block.hash = self.hash
+        
         if new_block return True:
         
+        if new_block() return True:
         
+        self.next_block.current_transactions.append(self.new_mining_transaction)
+        
+        return next_block
         
         
                 
