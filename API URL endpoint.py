@@ -13,3 +13,4 @@ urlpatterns = [
     url('^connect_node$', views.connect_node, name="connect_node"), #New
     url('^replace_chain$', views.replace_chain, name="replace_chain"), #New
 ]
+
