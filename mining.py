@@ -97,11 +97,7 @@ import bpsc
 
         return vars(block)  
 
-def get_next_block(self):
-        
-        if new_block return True:
-        
-        next_block = len(chain) + 1
+
 
 
 
@@ -130,7 +126,14 @@ def mining_currency(self, bpsc):
         
         return new_block
 
-
+def get_next_block(self):
+        next_block = []
+        
+        next_block.index = len(chain) + 1
+        
+        if new_block return True:
+        
+        
         
         
                 
