@@ -1,7 +1,7 @@
 
 import time
 import os
-
+import bpsc
 
 
 
@@ -138,8 +138,11 @@ def mining_currency(self, bpsc):
         return True
 
 def update_reward():
+        
         reward = 9513.00000000000000
         
+        while money_mass =< 5000000000:
+       
         if self.calc_blocks() return True:
                 
                 reward = reward/1.618
@@ -147,33 +150,15 @@ def update_reward():
                 return reward
         return True
                 
+        if money_mass = 5000000000.000000000000000000000
+                
+                reward == 0.000000000000000000000
         
         
         
-        
-                
-                
-                
-                
-                
-                
-                
-def update_reward(self, money_mass,reward)
-
-    reward = 9513.000000000000000000
-
-         while money_mass =< 5000000000, self.len(chain) += 105120,
-                
-                reward = reward/1.61
-                
-         if money_mass = 5000000000.000000000000000000000
-                
-                reward = 0.000000000000000000000
-        
-
 def get_money_mass(self, reward, money_mass):
             
-            money_mass = 0.000000000000000000000      
+        money_mass = 0.000000000000000000000      
  
             
             while mining_currency(), 
@@ -181,4 +166,21 @@ def get_money_mass(self, reward, money_mass):
                 money_mass += self.reward
                 
             return money_mass    
+            
+                
+                
+                
+                
+                
+                
+
+    
+
+        
+                
+                 
+                
+         
+        
+
 
