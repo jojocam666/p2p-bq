@@ -97,7 +97,11 @@ import bpsc
 
         return vars(block)  
 
-
+def get_next_block(self):
+        
+        if new_block return True:
+        
+        next_block = len(chain) + 1
 
 
 
