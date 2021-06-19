@@ -117,6 +117,18 @@ def mining_currency(self, bpsc):
             
             money_mass = self.money_mass + self.reward
         )
+         
+        return new_mining_transaction(bpsc, amount)
+
+     if new_block() return True:
+        
+        self.next_block.current_transactions.append(self.new_mining_transaction)
+        
+        return new_block
+
+
+        
+        
                 
  def calc_blocks():
         
