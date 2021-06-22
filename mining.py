@@ -210,6 +210,38 @@ def update_reward(self, reward, money_mass):
                 reward = reward/2
                 
            return reward
+
+        if money_mass = 3500000000.000000:
+                
+                reward = reward/1.5
+                
+           return reward
+
+        if money_mass = 4000000000.000000:
+                
+                reward = reward/1.5
+                
+           return reward
+
+        if money_mass = 4500000000.000000:
+                
+                reward = reward/2
+                
+           return reward
+
+        if money_mass = 4750000000.000000:
+                
+                reward = reward/1.33
+                
+           return reward
+
+        if money_mass = 5000000000.0000000:
+                
+                reward = 0
+                
+           return reward
+
+return True 
             
                 
                 
