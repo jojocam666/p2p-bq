@@ -187,7 +187,29 @@ def get_money_mass(self, reward, money_mass):
             
                 money_mass += self.reward
                 
-            return money_mass    
+            return money_mass
+
+def update_reward(self, reward, money_mass):
+        
+    reward = 9513      
+
+        if money_mass = 1000000000.000000:
+                
+                reward = reward/2
+           
+        return reward
+
+        if money_mass = 2000000000.000000:
+                
+                reward = reward/1.33
+                
+           return reward
+
+        if money_mass = 2750000000.000000:
+                
+                reward = reward/2
+                
+           return reward
             
                 
                 
