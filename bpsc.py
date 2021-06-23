@@ -1,4 +1,4 @@
-class Contract():
+class BPSC(Contract):
   
   def __init__(self, address, address_indexed_from, address_indexed_to, amount, execution_terms, timestamp = None):
     
