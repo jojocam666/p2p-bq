@@ -8,4 +8,4 @@ class Contract():
     
     self.address_indexed_to = address_indexed_to 
     
-    
+    self.xct_terms = xct_terms
